@@ -1,5 +1,11 @@
+
 /* ==========================================
-   02. HERO MAIN
+   ALI.EXE — RETRO DIGITAL / Y2K
+   HERO SECTION
+========================================== */
+
+/* ==========================================
+   01. HERO MAIN
 ========================================== */
 
 .hero-y2k {
@@ -20,6 +26,7 @@
 }
 
 /* Background grid */
+
 .y2k-bg-grid {
   position: absolute;
   inset: 0;
@@ -28,21 +35,19 @@
   opacity: .24;
   background-image:
     linear-gradient(rgba(23,25,31,.09) 1px, transparent 1px),
-    linear-gradient(90deg,rgba(23,25,31,.09) 1px, transparent 1px);
+    linear-gradient(90deg, rgba(23,25,31,.09) 1px, transparent 1px);
   background-size: 36px 36px;
-  mask-image: linear-gradient(
-    to bottom,
-    black,
-    transparent 95%
-  );
+  mask-image: linear-gradient(to bottom, black, transparent 95%);
 }
+
+/* Decorative stars */
 
 .y2k-bg-star {
   position: absolute;
   z-index: -1;
   color: var(--cobalt);
   pointer-events: none;
-  animation: y2kStarFloat 5s ease-in-out infinite;
+  animation: y2k-star-float 5s ease-in-out infinite;
 }
 
 .y2k-star-one {
@@ -59,17 +64,18 @@
   animation-delay: -2s;
 }
 
-@keyframes y2kStarFloat {
-  0%,100% {
+@keyframes y2k-star-float {
+  0%, 100% {
     transform: translateY(0) rotate(0);
   }
+
   50% {
     transform: translateY(-13px) rotate(15deg);
   }
 }
 
 /* ==========================================
-   03. TOP BAR
+   02. TOP STATUS BAR
 ========================================== */
 
 .y2k-topbar {
@@ -117,6 +123,8 @@
   gap: 8px;
 }
 
+/* Online indicator */
+
 .y2k-online-dot {
   width: 8px;
   height: 8px;
@@ -124,15 +132,17 @@
   border-radius: 50%;
   background: #38A66A;
   box-shadow: 0 0 0 3px rgba(56,166,106,.13);
-  animation: y2kBlink 2s infinite;
+  animation: y2k-blink 2s infinite;
 }
 
-@keyframes y2kBlink {
-  50% { opacity: .45; }
+@keyframes y2k-blink {
+  50% {
+    opacity: .45;
+  }
 }
 
 /* ==========================================
-   04. HERO LAYOUT
+   03. HERO LAYOUT
 ========================================== */
 
 .y2k-hero-main {
@@ -150,7 +160,7 @@
 }
 
 /* ==========================================
-   05. RETRO WINDOW
+   04. RETRO WINDOW
 ========================================== */
 
 .y2k-window {
@@ -195,10 +205,15 @@
   line-height: 1;
 }
 
+/* Intro window */
+
 .y2k-intro-window {
   max-width: 540px;
   transform: rotate(-1deg);
-  transition: transform .4s ease, box-shadow .4s ease;
+  transform-origin: left center;
+  transition:
+    transform .4s ease,
+    box-shadow .4s ease;
 }
 
 .y2k-intro-window:hover {
@@ -222,7 +237,7 @@
 .y2k-intro-content h1 {
   color: var(--forest);
   font-family: var(--font-display);
-  font-size: clamp(4rem,7vw,6.8rem);
+  font-size: clamp(4rem, 7vw, 6.8rem);
   font-weight: 900;
   letter-spacing: -.105em;
   line-height: .78;
@@ -273,7 +288,7 @@
 }
 
 /* ==========================================
-   06. HERO BUTTONS
+   05. HERO ACTION BUTTONS
 ========================================== */
 
 .y2k-hero-actions {
@@ -307,9 +322,9 @@
 }
 
 .y2k-button-primary:hover {
-  background: var(--cobalt);
+  transform: translate(-2px, -3px);
   border-color: var(--cobalt);
-  transform: translate(-2px,-3px);
+  background: var(--cobalt);
   box-shadow: 7px 7px 0 var(--forest);
 }
 
@@ -323,7 +338,7 @@
 }
 
 .y2k-button-primary:hover .y2k-button-arrow {
-  transform: translate(3px,-3px);
+  transform: translate(3px, -3px);
 }
 
 .y2k-button-secondary {
@@ -333,12 +348,13 @@
 }
 
 .y2k-button-secondary:hover {
-  background: var(--clay);
   transform: translateY(-3px);
+  background: var(--clay);
   box-shadow: 4px 4px 0 var(--forest);
 }
 
 /* Availability */
+
 .y2k-availability {
   display: flex;
   align-items: center;
@@ -356,7 +372,7 @@
 }
 
 /* ==========================================
-   07. 3D COMPUTER STAGE
+   06. 3D COMPUTER STAGE
 ========================================== */
 
 .y2k-hero-visual {
@@ -384,13 +400,15 @@
   perspective: 1000px;
 }
 
+/* Rotating circle */
+
 .y2k-stage-circle {
   position: absolute;
   width: 75%;
   aspect-ratio: 1;
   border: 1px dashed rgba(66,107,255,.4);
   border-radius: 50%;
-  animation: y2kRotate 35s linear infinite;
+  animation: y2k-rotate 35s linear infinite;
 }
 
 .y2k-stage-circle::before {
@@ -401,9 +419,13 @@
   border-radius: 50%;
 }
 
-@keyframes y2kRotate {
-  to { transform: rotate(360deg); }
+@keyframes y2k-rotate {
+  to {
+    transform: rotate(360deg);
+  }
 }
+
+/* Computer window */
 
 .y2k-computer-window {
   position: relative;
@@ -414,13 +436,17 @@
   background: #F7F3E9;
   box-shadow: 8px 8px 0 rgba(23,25,31,.16);
   transform: rotate(1.5deg);
-  transition: transform .4s ease, box-shadow .4s ease;
+  transition:
+    transform .45s cubic-bezier(.2,.7,.2,1),
+    box-shadow .45s ease;
 }
 
 .y2k-computer-window:hover {
-  transform: rotate(0) translateY(-5px);
+  transform: rotate(0) translateY(-7px);
   box-shadow: 12px 12px 0 rgba(66,107,255,.2);
 }
+
+/* 3D model screen */
 
 .y2k-model-screen {
   position: relative;
@@ -428,8 +454,8 @@
   overflow: hidden;
   background-color: #D8E0E7;
   background-image:
-    linear-gradient(rgba(66,107,255,.07) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(66,107,255,.07) 1px,transparent 1px);
+    linear-gradient(rgba(66,107,255,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(66,107,255,.07) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
@@ -439,7 +465,14 @@
   display: block;
   background: transparent;
   --poster-color: transparent;
+  cursor: grab;
 }
+
+.y2k-model-screen model-viewer:active {
+  cursor: grabbing;
+}
+
+/* Model tag */
 
 .y2k-model-tag {
   position: absolute;
@@ -475,6 +508,8 @@
   pointer-events: none;
 }
 
+/* Model footer */
+
 .y2k-model-footer {
   min-height: 32px;
   display: flex;
@@ -489,7 +524,12 @@
   letter-spacing: .05em;
 }
 
-/* Floating sticker */
+/* ==========================================
+   07. FLOATING DECORATIONS
+========================================== */
+
+/* Sticker */
+
 .y2k-floating-sticker {
   position: absolute;
   z-index: 4;
@@ -509,21 +549,26 @@
   font-family: var(--font-mono);
   font-size: 8px;
   font-weight: 700;
-  transform: rotate(12deg);
   box-shadow: 4px 4px 0 var(--forest);
-  animation: y2kStickerFloat 5s ease-in-out infinite;
+  animation: y2k-sticker-float 5s ease-in-out infinite;
 }
 
 .y2k-sticker-symbol {
   font-size: 22px;
 }
 
-@keyframes y2kStickerFloat {
-  0%,100% { transform: translateY(0) rotate(12deg); }
-  50% { transform: translateY(-12px) rotate(18deg); }
+@keyframes y2k-sticker-float {
+  0%, 100% {
+    transform: translateY(0) rotate(12deg);
+  }
+
+  50% {
+    transform: translateY(-12px) rotate(18deg);
+  }
 }
 
-/* Floating badge */
+/* Developer badge */
+
 .y2k-floating-badge {
   position: absolute;
   z-index: 4;
@@ -543,6 +588,7 @@
   font-size: 7px;
   transform: rotate(-9deg);
   box-shadow: 4px 4px 0 var(--forest);
+  transition: transform .3s ease;
 }
 
 .y2k-floating-badge strong {
@@ -550,12 +596,18 @@
   font-size: 19px;
 }
 
-/* Stage decorations */
+.y2k-floating-badge:hover {
+  transform: rotate(0) scale(1.05);
+}
+
+/* Stage crosses */
+
 .y2k-stage-cross {
   position: absolute;
   color: var(--cobalt);
   font-family: var(--font-mono);
   font-size: 28px;
+  pointer-events: none;
 }
 
 .y2k-cross-one {
@@ -609,7 +661,7 @@
 }
 
 /* ==========================================
-   09. BOTTOM BAR
+   09. HERO BOTTOM BAR
 ========================================== */
 
 .y2k-hero-bottom {
@@ -625,10 +677,20 @@
   letter-spacing: .08em;
 }
 
+/* Scroll hint */
+
 .y2k-scroll-hint {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 10px;
+  width: fit-content;
+  color: inherit;
+  text-decoration: none;
+  transition: color .25s ease;
+}
+
+.y2k-scroll-hint:hover {
+  color: var(--cobalt);
 }
 
 .y2k-scroll-icon {
@@ -640,13 +702,20 @@
   border-radius: 50%;
   color: var(--cobalt);
   font-size: 13px;
-  animation: y2kScroll 1.5s ease-in-out infinite;
+  animation: y2k-scroll 1.5s ease-in-out infinite;
 }
 
-@keyframes y2kScroll {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(4px); }
+@keyframes y2k-scroll {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(5px);
+  }
 }
+
+/* Tech ticker */
 
 .y2k-tech-ticker {
   display: flex;
@@ -662,12 +731,14 @@
   color: var(--clay);
 }
 
+/* Copyright */
+
 .y2k-copyright {
   text-align: right;
 }
 
 /* ==========================================
-   10. REVEAL OVERRIDE
+   10. REVEAL ANIMATION
 ========================================== */
 
 .hero-y2k .reveal {
@@ -682,6 +753,8 @@
   opacity: 1;
   transform: translateY(0);
 }
+
+/* Intro window reveal */
 
 .hero-y2k .y2k-intro-window.reveal.visible {
   transform: rotate(-1deg);
@@ -703,7 +776,7 @@
   }
 
   .y2k-hero-visual {
-    width: min(100%,650px);
+    width: min(100%, 650px);
     margin-inline: auto;
   }
 
@@ -749,7 +822,7 @@
   }
 
   .y2k-intro-content h1 {
-    font-size: clamp(4rem,15vw,6rem);
+    font-size: clamp(4rem, 15vw, 6rem);
   }
 
   .y2k-intro-content p {
@@ -818,8 +891,8 @@
   }
 
   .y2k-hero-main {
-    padding-top: 45px;
     gap: 35px;
+    padding-top: 45px;
   }
 
   .y2k-intro-content {
@@ -827,7 +900,7 @@
   }
 
   .y2k-intro-content h1 {
-    font-size: clamp(3.7rem,16vw,5rem);
+    font-size: clamp(3.7rem, 16vw, 5rem);
   }
 
   .y2k-intro-content p {
@@ -851,8 +924,8 @@
   }
 
   .y2k-availability {
-    font-size: 7px;
     gap: 7px;
+    font-size: 7px;
   }
 
   .y2k-computer-stage {
@@ -918,5 +991,6 @@
     animation-duration: .01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
   }
 }

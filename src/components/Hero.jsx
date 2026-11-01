@@ -178,7 +178,7 @@ function Hero() {
               {/* Floating badge */}
               <div className="y2k-floating-badge">
                 <span>EST.</span>
-                <strong>2024</strong>
+                <strong>2022</strong>
                 <span>DEVELOPER</span>
               </div>
 
@@ -200,10 +200,10 @@ function Hero() {
         {/* Bottom information */}
         <div className="y2k-hero-bottom reveal">
 
-          <div className="y2k-scroll-hint">
-            <span className="y2k-scroll-icon">↓</span>
-            SCROLL TO EXPLORE
-          </div>
+          <a href="#about" className="y2k-scroll-hint">
+  <span className="y2k-scroll-icon">↓</span>
+  SCROLL TO EXPLORE
+</a>
 
           <div className="y2k-tech-ticker">
             <span>LARAVEL</span>

@@ -1,0 +1,67 @@
+/* ==========================================
+   ALI.EXE — RETRO DIGITAL / Y2K
+   HERO DESIGN SYSTEM
+========================================== */
+
+/* 01. NEW COLOR PALETTE */
+:root {
+  --paper: #E9E4D8;
+  --cream: #D9D2C4;
+  --sage: #426BFF;
+  --forest: #17191F;
+  --muted: #77756F;
+  --clay: #FF7438;
+
+  --navy: #20232D;
+  --cobalt: #426BFF;
+  --violet: #7656D6;
+  --neon: #B8D9C2;
+  --soft-blue: #AFC2FF;
+  --light-blue: #DCE5FF;
+  --white: #FFFFFF;
+
+  --line: rgba(23,25,31,.16);
+  --line-strong: rgba(23,25,31,.35);
+
+  --font-body: "Space Grotesk", sans-serif;
+  --font-display: "Syne", sans-serif;
+  --font-mono: "DM Mono", monospace;
+
+  --container: 1240px;
+  --nav-height: 85px;
+
+  --transition: .35s cubic-bezier(.2,.7,.2,1);
+
+  --glow-blue: 0 8px 30px rgba(66,107,255,.16);
+  --glow-violet: 0 8px 30px rgba(118,86,214,.15);
+}
+
+/* GLOBAL BACKGROUND */
+body {
+  background: var(--paper);
+  color: var(--forest);
+}
+
+body::before {
+  background:
+    radial-gradient(
+      ellipse at 10% 10%,
+      rgba(66,107,255,.07),
+      transparent 35%
+    ),
+    radial-gradient(
+      ellipse at 90% 40%,
+      rgba(255,116,56,.06),
+      transparent 35%
+    );
+}
+
+body::after {
+  opacity: .045;
+}
+
+/* Selection */
+::selection {
+  background: var(--cobalt);
+  color: white;
+}

@@ -1,0 +1,101 @@
+/* =========================================
+   ALI.EXE — GLOBAL LAYOUT SYSTEM
+   ========================================= */
+
+:root {
+  --paper: #F7F8FA;
+  --cream: #E9E4D8;
+  --charcoal: #17191F;
+  --cobalt: #426BFF;
+  --orange: #FF7438;
+  --mint: #B8D9C2;
+  --muted: #68738A;
+
+  --content-width: 1280px;
+  --page-gutter: clamp(20px, 5.5vw, 88px);
+
+  --section-space: clamp(76px, 9vw, 132px);
+  --window-padding: clamp(18px, 2.5vw, 36px);
+  --card-gap: clamp(14px, 1.8vw, 24px);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--paper);
+  color: var(--charcoal);
+}
+
+/* Semua section memakai batas lebar yang sama */
+main,
+.main-website {
+  width: 100%;
+  min-width: 0;
+}
+
+/* Container utama */
+.container-y2k {
+  width: min(
+    calc(100% - (var(--page-gutter) * 2)),
+    var(--content-width)
+  );
+  margin-inline: auto;
+}
+
+/* Jarak antar section */
+section {
+  position: relative;
+  padding-block: var(--section-space);
+}
+
+/* Konten section tidak boleh melebihi viewport */
+section > * {
+  min-width: 0;
+}
+
+/* Window dan panel */
+.y2k-window,
+.about-profile-window,
+.about-info-window,
+.projects-archive-window,
+.certificates-explorer,
+.skills-computer-window,
+.education-records-window,
+.contact-window {
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* Responsive media */
+img,
+video,
+model-viewer {
+  max-width: 100%;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  :root {
+    --page-gutter: 20px;
+    --section-space: 72px;
+    --window-padding: 18px;
+    --card-gap: 14px;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 380px) {
+  :root {
+    --page-gutter: 16px;
+    --section-space: 60px;
+  }
+}

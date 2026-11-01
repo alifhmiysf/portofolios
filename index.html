@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta
+    name="description"
+    content="Ali Fahmi Yusuf — Backend Engineer building secure, scalable, and reliable systems."
+  />
+
+  <meta name="theme-color" content="#E9E4D8" />
+
+  <title>Ali Fahmi Yusuf — Backend Engineer</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Configuration -->
+  <script>
+    
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        paper: "#F7F8FA",
+        cream: "#E9E4D8",
+        sage: "#426BFF",
+        forest: "#17191F",
+        muted: "#68738A",
+        clay: "#FF7438",
+
+        midnight: "#17191F",
+        navy: "#252936",
+        cobalt: "#426BFF",
+        orange: "#FF7438",
+        mint: "#B8D9C2",
+        slate: "#68738A",
+        whiteblue: "#F7F8FA"
+      },
+
+      fontFamily: {
+        sans: ["Space Grotesk", "sans-serif"],
+        editorial: ["Syne", "sans-serif"],
+        display: ["Syne", "sans-serif"],
+        mono: ["DM Mono", "monospace"]
+      },
+
+      boxShadow: {
+        editorial: "6px 6px 0 rgba(23, 25, 31, 0.12)",
+        card: "4px 4px 0 rgba(23, 25, 31, 0.10)",
+        glow: "0 0 0 transparent",
+        violet: "0 0 0 transparent"
+      }
+    }
+  }
+};
+
+  </script>
+
+  <!-- Custom CSS -->
+  
+<!-- Global styles -->
+<link rel="stylesheet" href="./src/styles/base.css" />
+<link rel="stylesheet" href="./src/styles/layout.css" />
+
+<!-- Component styles -->
+<link rel="stylesheet" href="./src/styles/loader.css" />
+<link rel="stylesheet" href="./src/styles/navbar.css" />
+<link rel="stylesheet" href="./src/styles/hero.css" />
+<link rel="stylesheet" href="./src/styles/about.css" />
+<link rel="stylesheet" href="./src/styles/projects.css" />
+<link rel="stylesheet" href="./src/styles/certificates.css" />
+<link rel="stylesheet" href="./src/styles/skills.css" />
+<link rel="stylesheet" href="./src/styles/education.css" />
+<link rel="stylesheet" href="./src/styles/footer.css" />
+
+
+  <!-- React 18 -->
+  <script
+    crossorigin
+    src="https://unpkg.com/react@18/umd/react.production.min.js"
+  ></script>
+
+  <script
+    crossorigin
+    src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"
+  ></script>
+
+  <!-- Babel for JSX -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <!-- GSAP Animation Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.14.2/gsap.min.js"></script>
+
+  <!-- GSAP ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.14.2/ScrollTrigger.min.js"></script>
+
+  <!-- Vanilla Tilt: 3D Card Interaction -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+
+  <!-- Model Viewer: 3D GLB -->
+  <script
+    type="module"
+    src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"
+  ></script>
+</head>
+
+<body class="bg-paper text-forest font-sans">
+
+  <div id="root">
+    <div class="initial-loader">
+      <span>ALI FAHMI YUSUF</span>
+      <div class="initial-loader-line"></div>
+    </div>
+  </div>
+
+  <!-- React Components -->
+  <script type="text/babel" src="src/components/Loader.jsx"></script>
+  <script type="text/babel" src="src/components/Navbar.jsx"></script>
+  <script type="text/babel" src="src/components/Hero.jsx"></script>
+  <script type="text/babel" src="src/components/About.jsx"></script>
+  <script type="text/babel" src="src/components/ProjectCarousel.jsx"></script>
+  <script type="text/babel" src="src/components/Certificates.jsx"></script>
+  <script type="text/babel" src="src/components/SkillsMarquee.jsx"></script>
+  <script type="text/babel" src="src/components/Education.jsx"></script>
+  <script type="text/babel" src="src/components/Footer.jsx"></script>
+
+  <!-- Main Application -->
+  <script type="text/babel" src="src/App.jsx"></script>
+
+</body>
+</html>

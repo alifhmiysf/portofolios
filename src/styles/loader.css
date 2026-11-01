@@ -1,0 +1,248 @@
+/* ========================================
+   LOADER — RETRO OPERATING SYSTEM STARTUP
+======================================== */
+
+.loader-xp {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      ellipse at center,
+      #244c83 0%,
+      #15345f 48%,
+      #09172d 100%
+    );
+  color: #fff;
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 0.6s ease,
+    visibility 0.6s ease;
+}
+
+.loader-xp.loader-exiting {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader-xp-screen {
+  position: relative;
+  width: min(760px, 88vw);
+  min-height: 430px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 25px 30px;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 7px;
+  background: rgba(5, 15, 34, 0.23);
+  box-shadow:
+    0 25px 80px rgba(0, 0, 0, 0.28),
+    inset 0 0 50px rgba(255, 255, 255, 0.025);
+}
+
+.loader-xp-top,
+.loader-xp-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  font-family: monospace;
+  font-size: 9px;
+  letter-spacing: 0.13em;
+  color: rgba(255, 255, 255, 0.52);
+}
+
+.loader-xp-center {
+  width: min(390px, 100%);
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Logo */
+
+.loader-xp-logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 23px;
+}
+
+.loader-xp-symbol {
+  position: relative;
+  width: 57px;
+  height: 57px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  transform: rotate(-12deg);
+  animation: xp-logo-float 3s ease-in-out infinite;
+}
+
+.xp-square {
+  display: block;
+  border-radius: 3px;
+  box-shadow: inset 2px 2px 5px rgba(255, 255, 255, 0.3);
+}
+
+.xp-red {
+  background: #F15B4A;
+}
+
+.xp-green {
+  background: #78B957;
+}
+
+.xp-blue {
+  background: #4C9DEB;
+}
+
+.xp-yellow {
+  background: #F6C64A;
+}
+
+@keyframes xp-logo-float {
+  0%, 100% {
+    transform: rotate(-12deg) translateY(0);
+  }
+
+  50% {
+    transform: rotate(-8deg) translateY(-5px);
+  }
+}
+
+/* Branding */
+
+.loader-xp-brand h1 {
+  font-size: clamp(38px, 8vw, 65px);
+  font-weight: 800;
+  letter-spacing: -0.075em;
+  line-height: 1;
+}
+
+.loader-xp-brand h1 span {
+  color: #8DBBFF;
+}
+
+.loader-xp-brand p {
+  margin-top: 11px;
+  font-family: monospace;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Progress */
+
+.loader-xp-loading {
+  margin-top: 55px;
+}
+
+.loader-xp-progress-track {
+  width: 100%;
+  height: 12px;
+  overflow: hidden;
+  padding: 2px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.loader-xp-progress-fill {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 2px;
+  background: linear-gradient(
+    90deg,
+    #5C9CEB,
+    #9DC8FF
+  );
+  transition: width 0.12s linear;
+}
+
+.loader-xp-progress-fill span {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.5),
+    transparent
+  );
+  animation: xp-progress-shine 1s linear infinite;
+}
+
+@keyframes xp-progress-shine {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.loader-xp-progress-info {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 12px;
+  font-family: monospace;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* Scanline effect */
+
+.loader-xp-scanline {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.08;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 3px,
+    #000 4px
+  );
+}
+
+/* Responsive */
+
+@media (max-width: 480px) {
+  .loader-xp-screen {
+    min-height: 350px;
+    padding: 20px 16px;
+  }
+
+  .loader-xp-top,
+  .loader-xp-bottom {
+    font-size: 7px;
+    letter-spacing: 0.07em;
+  }
+
+  .loader-xp-brand p {
+    font-size: 8px;
+    letter-spacing: 0.2em;
+  }
+
+  .loader-xp-loading {
+    margin-top: 40px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loader-xp-symbol,
+  .loader-xp-progress-fill span {
+    animation: none;
+  }
+
+  .loader-xp {
+    transition: none;
+  }
+}

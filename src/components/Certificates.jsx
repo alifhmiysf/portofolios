@@ -35,7 +35,7 @@ const certificates = [
     issuer: "HackerRank",
     date: "Issued Jan 2025",
     credential: "DC2A641824ED",
-    link: "https://www.hackerrank.com/",
+    link: "https://www.hackerrank.com/certificates/dc2a641824ed",
     type: "SQL",
     color: "blue"
   }

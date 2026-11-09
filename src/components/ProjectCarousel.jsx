@@ -1,4 +1,3 @@
-
 const projects = [
   {
     number: "01",
@@ -6,8 +5,10 @@ const projects = [
     description:
       "Secure REST API for expense tracking with strong access control and production-ready architecture.",
     tags: ["Laravel", "API", "Docker"],
-    link: "https://alifhmiysf.github.io/portoguy/projects/expense-api.html",
+    link: "./projects/project-detail.html?id=expense-api",
+    detailPage: "./projects/project-detail.html?id=expense-api",
     livePreview: null,
+    previewAddress: "api://expense-api",
     category: "Backend Development",
     extension: "API",
     accent: "blue",
@@ -19,75 +20,100 @@ const projects = [
     description:
       "Microservices-based e-commerce backend using Laravel, Docker, and Nginx API Gateway with inter-service communication and database isolation.",
     tags: ["Laravel", "Microservices", "Docker", "Nginx"],
-    link: "https://alifhmiysf.github.io/portoguy/projects/ecommerce-microservices-system.html",
+    link: "./projects/project-detail.html?id=ecommerce-microservices",
+    detailPage: "./projects/project-detail.html?id=ecommerce-microservices",
     livePreview: "https://simplestore.devstash.my.id/",
+    previewAddress: "simplestore.devstash.my.id",
     category: "System Architecture",
     extension: "SYS",
     accent: "orange",
     type: "SYSTEM PROJECT",
   },
-  
-{
-  number: "03",
-  title: "ChiliClass",
-  description:
-    "Deep learning-based chili pepper classification web application using MobileNetV2 and TensorFlow. Classifies chili images into five maturity and condition categories, with confidence scores and user-assisted prediction correction.",
-  tags: [
-    "Python",
-    "Flask",
-    "TensorFlow",
-    "MobileNetV2",
-    "Computer Vision",
-    "Tailwind CSS"
-  ],
-  link: null,
-  livePreview: "https://chiliclass.devstash.my.id/",
-  category: "Machine Learning",
-  extension: "AI",
-  accent: "green",
-  type: "AI PROJECT",
-},
-
-{
-  number: "04",
-  title: "MeowMap",
-  description:
-    "A cat rescue and community platform featuring interactive maps, cat sighting reports, breed information, and an adoption marketplace. Built with Laravel REST API, Sanctum authentication, MySQL, and Leaflet.",
-  tags: [
-    "Laravel 12",
-    "PHP",
-    "MySQL",
-    "REST API",
-    "Sanctum",
-    "Leaflet",
-    "OpenStreetMap"
-  ],
-  link: null,
-  livePreview: "https://devstash.my.id/",
-  category: "Full-Stack Development",
-  extension: "MAP",
-  accent: "orange",
-  type: "FULL-STACK PROJECT",
-},
-
   {
     number: "03",
+    title: "ChiliClass",
+    description:
+      "Deep learning-based chili pepper classification web application using MobileNetV2 and TensorFlow. Classifies chili images into five maturity and condition categories, with confidence scores and user-assisted prediction correction.",
+    tags: [
+      "Python",
+      "Flask",
+      "TensorFlow",
+      "MobileNetV2",
+      "Computer Vision",
+      "Tailwind CSS",
+    ],
+    link: "./projects/project-detail.html?id=chiliclass",
+    detailPage: "./projects/project-detail.html?id=chiliclass",
+    livePreview: "https://chiliclass.devstash.my.id/",
+    previewAddress: "chiliclass.devstash.my.id",
+    category: "Machine Learning",
+    extension: "AI",
+    accent: "green",
+    type: "AI PROJECT",
+  },
+  {
+    number: "04",
+    title: "MeowMap",
+    description:
+      "A cat rescue and community platform featuring interactive maps, cat sighting reports, breed information, and an adoption marketplace. Built with Laravel REST API, Sanctum authentication, MySQL, and Leaflet.",
+    tags: [
+      "Laravel 12",
+      "PHP",
+      "MySQL",
+      "REST API",
+      "Sanctum",
+      "Leaflet",
+      "OpenStreetMap",
+    ],
+    link: "./projects/project-detail.html?id=meowmap",
+    detailPage: "./projects/project-detail.html?id=meowmap",
+    livePreview: "https://devstash.my.id/",
+    previewAddress: "devstash.my.id",
+    category: "Full-Stack Development",
+    extension: "MAP",
+    accent: "orange",
+    type: "FULL-STACK PROJECT",
+  },
+  {
+    number: "05",
     title: "Auth API Go",
     description:
       "Secure authentication REST API built with Go and PostgreSQL, implementing JWT authentication, password hashing, middleware, and layered architecture.",
     tags: ["Go", "PostgreSQL", "JWT", "bcrypt", "Docker"],
-    link: "https://alifhmiysf.github.io/portoguy/projects/auth-api.html",
+    link: "./projects/project-detail.html?id=auth-api-go",
+    detailPage: "./projects/project-detail.html?id=auth-api-go",
     livePreview: null,
+    previewAddress: "api://auth-api",
     category: "API Security",
     extension: "SEC",
     accent: "green",
     type: "SECURITY PROJECT",
   },
-  
+  {
+  number: "06",
+  title: "Chapri Web",
+  description:
+    "Collaborative project management platform for teams to organize workspaces, manage tasks, communicate with members, and track project progress. Built with React, TypeScript, Firebase, and Cloud Firestore.",
+  tags: [
+    "React",
+    "TypeScript",
+    "Vite",
+    "Firebase",
+    "Firestore",
+    "Tailwind CSS"
+  ],
+  link: "./projects/project-detail.html?id=chapri-web",
+  detailPage: "./projects/project-detail.html?id=chapri-web",
+  livePreview: "https://chapri-web.vercel.app/login",
+  previewAddress: "chapri-web.vercel.app",
+  category: "Full-Stack Development",
+  extension: "WEB",
+  accent: "blue",
+  type: "FULL-STACK PROJECT",
+},
 ];
 
 function ProjectCarousel() {
-  // E-Commerce dipilih secara default
   const [selectedProject, setSelectedProject] = React.useState(1);
 
   const activeProject = projects[selectedProject];
@@ -145,7 +171,7 @@ function ProjectCarousel() {
             <span>ALI.EXE / PROJECT EXPLORER</span>
 
             <span className="projects-archive-path">
-              04 FILES
+              {projects.length.toString().padStart(2, "0")} FILES
             </span>
           </div>
 
@@ -171,7 +197,9 @@ function ProjectCarousel() {
 
               <div className="project-sidebar-heading">
                 <span>DIRECTORY</span>
-                <span>04 ITEMS</span>
+                <span>
+                  {projects.length.toString().padStart(2, "0")} ITEMS
+                </span>
               </div>
 
               <div className="project-file-list">
@@ -185,7 +213,9 @@ function ProjectCarousel() {
                     onClick={() => setSelectedProject(index)}
                     aria-pressed={selectedProject === index}
                   >
-                    <div className={`project-file-symbol accent-${project.accent}`}>
+                    <div
+                      className={`project-file-symbol accent-${project.accent}`}
+                    >
                       <span>{project.extension}</span>
                     </div>
 
@@ -226,7 +256,9 @@ function ProjectCarousel() {
                   <h3>{activeProject.title}</h3>
                 </div>
 
-                <span className={`project-preview-type accent-${activeProject.accent}`}>
+                <span
+                  className={`project-preview-type accent-${activeProject.accent}`}
+                >
                   {activeProject.type}
                 </span>
               </div>
@@ -234,6 +266,7 @@ function ProjectCarousel() {
               {/* BROWSER */}
               <div className="project-browser">
 
+                {/* BROWSER TOOLBAR */}
                 <div className="project-browser-toolbar">
                   <div className="project-browser-dots">
                     <span></span>
@@ -243,11 +276,7 @@ function ProjectCarousel() {
 
                   <div className="project-browser-address">
                     <span>↗</span>
-                    <span>
-                      {activeProject.livePreview
-                        ? "simplestore.devstash.my.id"
-                        : `${activeProject.extension.toLowerCase()}://project-info`}
-                    </span>
+                    <span>{activeProject.previewAddress}</span>
                   </div>
 
                   {activeProject.livePreview && (
@@ -264,7 +293,7 @@ function ProjectCarousel() {
                   )}
                 </div>
 
-                {/* LIVE IFRAME */}
+                {/* LIVE WEBSITE PREVIEW */}
                 {activeProject.livePreview ? (
                   <div className="project-live-frame">
                     <iframe
@@ -278,7 +307,9 @@ function ProjectCarousel() {
                 ) : (
                   /* PROJECT INFORMATION */
                   <div className="project-info-preview">
-                    <div className={`project-info-icon accent-${activeProject.accent}`}>
+                    <div
+                      className={`project-info-icon accent-${activeProject.accent}`}
+                    >
                       {activeProject.extension}
                     </div>
 
@@ -294,75 +325,55 @@ function ProjectCarousel() {
                       <span>CATEGORY</span>
                       <strong>{activeProject.category}</strong>
                     </div>
-
-                    {activeProject.link ? (
-                      <a
-                        href={activeProject.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="project-info-button"
-                      >
-                        VIEW PROJECT DETAILS <span>↗</span>
-                      </a>
-                    ) : (
-                      <span className="project-info-current">
-                        CURRENT PORTFOLIO
-                      </span>
-                    )}
                   </div>
                 )}
 
               </div>
 
-              {/* PROJECT DESCRIPTION */}
+              {/* PROJECT DETAILS */}
               <div className="project-preview-details">
 
-                
-<div className="project-preview-details">
+                <div className="project-preview-description">
+                  <span>ABOUT THIS PROJECT</span>
+                  <p>{activeProject.description}</p>
+                </div>
 
-  <div className="project-preview-description">
-    <span>ABOUT THIS PROJECT</span>
-    <p>{activeProject.description}</p>
-  </div>
+                <div className="project-preview-stack">
+                  <span>TECH STACK</span>
 
-  <div className="project-preview-stack">
-    <span>TECH STACK</span>
+                  <div className="project-y2k-tags">
+                    {activeProject.tags.map((tag) => (
+                      <span className="project-tag" key={tag}>
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
 
-    <div className="project-y2k-tags">
-      {activeProject.tags.map((tag) => (
-        <span className="project-tag" key={tag}>
-          {tag}
-        </span>
-      ))}
-    </div>
+                  {/* PROJECT ACTIONS */}
+                  <div className="project-detail-actions">
 
-    <div className="project-detail-actions">
-      {activeProject.link && (
-        <a
-          href={activeProject.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="project-docs-button"
-        >
-          READ DOCS <span>↗</span>
-        </a>
-      )}
+                    <a
+                      href={activeProject.detailPage}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="project-docs-button"
+                    >
+                      READ DOCS <span>↗</span>
+                    </a>
 
-      {activeProject.livePreview && (
-        <a
-          href={activeProject.livePreview}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="project-live-button"
-        >
-          OPEN LIVE SITE <span>↗</span>
-        </a>
-      )}
-    </div>
-  </div>
+                    {activeProject.livePreview && (
+                      <a
+                        href={activeProject.livePreview}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="project-live-button"
+                      >
+                        OPEN LIVE SITE <span>↗</span>
+                      </a>
+                    )}
 
-</div>
-
+                  </div>
+                </div>
 
               </div>
 
@@ -371,13 +382,14 @@ function ProjectCarousel() {
 
           {/* STATUSBAR */}
           <div className="projects-archive-status">
-            <span>4 OBJECTS</span>
+            <span>{projects.length} OBJECTS</span>
             <span>SELECT A FILE TO EXPLORE</span>
             <span>ALI.EXE / PROJECTS</span>
           </div>
 
         </div>
 
+        {/* BOTTOM */}
         <div className="projects-y2k-bottom reveal">
           <span>END OF DIRECTORY</span>
           <span>MORE PROJECTS COMING SOON...</span>

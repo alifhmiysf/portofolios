@@ -12,6 +12,8 @@ window.PROJECTS_DATA = {
     status: "COMPLETED",
     year: "2026",
 
+    githubUrl: "https://github.com/alifhmiysf/expense_api",
+
     description:
       "A secure REST API designed for expense tracking with structured backend architecture and access control.",
 
@@ -139,6 +141,8 @@ window.PROJECTS_DATA = {
     category: "SYSTEM ARCHITECTURE",
     status: "COMPLETED",
     year: "2026",
+
+    githubUrl: "https://github.com/alifhmiysf/ecommerce-microservices",
 
     description:
       "A microservices-based e-commerce application designed to separate core business capabilities into independent services. The system uses Laravel, Docker, and Nginx API Gateway to organize service communication and database responsibilities.",
@@ -268,6 +272,8 @@ window.PROJECTS_DATA = {
     status: "LIVE",
     year: "2026",
 
+    githubUrl: "https://github.com/alifhmiysf/chiliclass",
+
     description:
       "A web-based chili classification application powered by deep learning to identify chili conditions from uploaded images.",
 
@@ -390,6 +396,8 @@ window.PROJECTS_DATA = {
     category: "Full-Stack Development / Web GIS",
     status: "LIVE",
     year: "2026",
+
+    githubUrl: "https://github.com/alifhmiysf/MeowMap",
 
     description:
       "A web-based GIS platform designed to map cat sightings and provide a community-driven platform for cat information, selling, and adoption.",
@@ -548,6 +556,8 @@ window.PROJECTS_DATA = {
     status: "COMPLETED",
     year: "2026",
 
+    githubUrl: "https://github.com/alifhmiysf/auth_api_GO",
+
     description:
       "A backend authentication API built with Go and PostgreSQL, implementing JWT-based authentication and password hashing.",
 
@@ -693,6 +703,8 @@ window.PROJECTS_DATA = {
     category: "Full-Stack Development / Web Application",
     status: "LIVE",
     year: "2026",
+
+    githubUrl: "https://github.com/alifhmiysf/chapri-web",
 
     description:
       "A collaborative project management platform designed to help teams organize tasks, communicate, and manage their workspaces in one place.",
@@ -857,6 +869,252 @@ window.PROJECTS_DATA = {
     ],
 
     livePreview: "https://chapri-web.vercel.app/login"
+  },
+
+
+  // ==========================================
+  // 07. CHAINSHIELD
+  // ==========================================
+
+  "chainshield": {
+    number: "07",
+    title: "ChainShield",
+    subtitle: "Blockchain-Based Security Audit System",
+
+    category: "CYBERSECURITY / BLOCKCHAIN",
+    status: "COMPLETED",
+    year: "2026",
+
+    githubUrl: "https://github.com/alifhmiysf/chainshield",
+
+    description:
+      "ChainShield is a security audit platform designed to improve the integrity, traceability, and accountability of system activities. It combines a Laravel REST API, role-based access control, tamper-evident audit logging, Merkle Tree verification, blockchain anchoring, and automated passive security assessment. The platform provides a centralized workflow for managing authorized security assessments and preserving audit evidence.",
+
+    tags: [
+      "Laravel",
+      "PHP",
+      "React",
+      "Vite",
+      "Python",
+      "MariaDB",
+      "Laravel Sanctum",
+      "RBAC",
+      "Solidity",
+      "Hardhat",
+      "ethers.js",
+      "Ethereum",
+      "SHA-256",
+      "Merkle Tree",
+      "HMAC-SHA256",
+      "REST API"
+    ],
+
+    overview: [
+      {
+        label: "PROJECT TYPE",
+        value: "Security Audit Platform"
+      },
+      {
+        label: "ARCHITECTURE",
+        value: "Laravel REST API + React Frontend"
+      },
+      {
+        label: "SECURITY RUNNER",
+        value: "Python"
+      },
+      {
+        label: "BLOCKCHAIN",
+        value: "Solidity / Hardhat / Ethereum"
+      },
+      {
+        label: "DATABASE",
+        value: "MariaDB"
+      },
+      {
+        label: "DEMONSTRATION",
+        value: "Local Environment / YouTube"
+      }
+    ],
+
+    problem:
+      "Application systems generate many important activities, including authentication events, administrative operations, data changes, and security assessment results. Without a reliable audit mechanism, these records can be difficult to verify and their integrity may be questioned. Traditional database records alone do not provide an independent cryptographic proof that stored audit evidence has remained unchanged. Security assessments also need a controlled workflow to manage authorized targets, assessment sessions, findings, and supporting evidence.",
+
+    solution:
+      "ChainShield combines a centralized security audit platform with cryptographic integrity mechanisms and blockchain-based evidence anchoring. Laravel handles authentication, authorization, audit records, and security assessment workflows. Audit records are protected using a SHA-256 hash chain and grouped into batches whose integrity is represented by a Merkle Tree root. The batch hash can then be anchored to a blockchain smart contract and independently verified. A Python security runner performs passive security checks and communicates with Laravel through HMAC-SHA256 authenticated requests.",
+
+    architecture: [
+      {
+        name: "React Frontend",
+        description:
+          "Provides the dashboard and user interface for authentication, audit logs, batch monitoring, blockchain verification, lab targets, sessions, and security findings.",
+        type: "client"
+      },
+      {
+        name: "Laravel REST API",
+        description:
+          "Central application layer responsible for API routing, business logic, authentication, authorization, audit operations, and security assessment workflows.",
+        type: "backend"
+      },
+      {
+        name: "Authentication & RBAC",
+        description:
+          "Uses Laravel Sanctum for API authentication and role-based permissions to protect application resources and privileged operations.",
+        type: "service"
+      },
+      {
+        name: "Audit Logging Service",
+        description:
+          "Records important system activities and maintains sequence-based audit records with SHA-256 hash-chain integrity.",
+        type: "service"
+      },
+      {
+        name: "Merkle Tree & Batch Service",
+        description:
+          "Groups audit records into batches and generates Merkle roots for batch-level integrity verification.",
+        type: "service"
+      },
+      {
+        name: "Python Security Runner",
+        description:
+          "Executes authorized passive security checks for SQLi indicators, XSS reflection, IDOR comparison, and brute-force or rate-limit protection indicators.",
+        type: "service"
+      },
+      {
+        name: "HMAC Authentication",
+        description:
+          "Authenticates Laravel-to-Python runner requests using HMAC-SHA256 signatures and a shared secret.",
+        type: "service"
+      },
+      {
+        name: "Blockchain Registry",
+        description:
+          "A Solidity smart contract that stores audit batch commitments and supports on-chain batch verification.",
+        type: "infrastructure"
+      },
+      {
+        name: "Hardhat & Ethereum",
+        description:
+          "Provides the blockchain development environment, contract deployment, transaction execution, and blockchain interaction through ethers.js.",
+        type: "infrastructure"
+      },
+      {
+        name: "MariaDB",
+        description:
+          "Stores application data, users, permissions, audit records, batches, lab sessions, findings, and blockchain transaction metadata.",
+        type: "infrastructure"
+      }
+    ],
+
+    features: [
+      {
+        title: "Authentication & Role-Based Access Control",
+        description:
+          "Implements Laravel Sanctum authentication and permission-based access control. Application roles include super-admin, security analyst, penetration tester, auditor, and user."
+      },
+      {
+        title: "Tamper-Evident Audit Logging",
+        description:
+          "Records important activities such as authentication and administrative operations. Audit records use SHA-256 hashing and sequence-based hash-chain verification to help detect unauthorized modifications."
+      },
+      {
+        title: "Merkle Tree Audit Batching",
+        description:
+          "Groups audit records into batches and generates a Merkle root representing the records in each batch. The root can be used to verify the integrity of the batch."
+      },
+      {
+        title: "Blockchain Anchoring",
+        description:
+          "Uses a Solidity smart contract registry to anchor audit batch hashes on a blockchain network. An anchored batch represents an immutable snapshot and new records are handled in subsequent batches."
+      },
+      {
+        title: "Blockchain Verification",
+        description:
+          "Provides verification workflows that compare stored batch information with blockchain registry data to check whether the anchored commitment matches."
+      },
+      {
+        title: "Lab Target & Session Management",
+        description:
+          "Provides an authorization workflow for lab targets and manages security assessment sessions through controlled states such as pending, running, completed, and cancelled."
+      },
+      {
+        title: "Automated Passive Security Assessment",
+        description:
+          "Integrates Python scanners for SQL injection indicators, reflected XSS checks, IDOR comparison, and brute-force or rate-limit protection indicators."
+      },
+      {
+        title: "Security Findings & Evidence",
+        description:
+          "Stores assessment findings, severity levels, CVSS scores, endpoints, evidence, recommendations, and finding status for further review."
+      },
+      {
+        title: "Laravel-to-Python HMAC Integration",
+        description:
+          "Uses HMAC-SHA256 request authentication between Laravel and the Python runner, with request validation and execution timeout controls."
+      },
+      {
+        title: "Blockchain Transaction Recovery",
+        description:
+          "Includes transaction tracking and recovery workflows for handling pending blockchain anchoring operations."
+      },
+      {
+        title: "Frontend Monitoring Dashboard",
+        description:
+          "Provides a React and Vite interface for monitoring audit batches, viewing batch details, checking verification results, and managing security assessment workflows."
+      }
+    ],
+
+    challenges: [
+      {
+        title: "Maintaining Audit Record Integrity",
+        description:
+          "A database record can be modified after it is created. The challenge was to build a verification mechanism that can detect changes across audit records. ChainShield addresses this through sequence-based SHA-256 hash chaining and Merkle Tree batch commitments."
+      },
+      {
+        title: "Connecting Application Data with Blockchain",
+        description:
+          "Blockchain transactions are separate from normal database operations. The application needed a reliable way to generate batch commitments, submit them to a smart contract, track transaction status, and verify the stored commitment."
+      },
+      {
+        title: "Managing Immutable Audit Batches",
+        description:
+          "An anchored batch must represent a fixed snapshot of audit records. New records cannot simply be appended to an already anchored batch, so the system uses subsequent batches for later audit activity."
+      },
+      {
+        title: "Securing Laravel-to-Python Communication",
+        description:
+          "The security runner is a separate process from the Laravel application. HMAC-SHA256 request authentication, shared-secret validation, execution timeouts, and controlled input handling help protect this integration."
+      },
+      {
+        title: "Building Controlled Security Assessment Workflows",
+        description:
+          "Security testing requires authorization and clear execution boundaries. The system validates target approval, session ownership, session state, and scanner options before running an assessment."
+      },
+      {
+        title: "Handling Security Scanner Limitations",
+        description:
+          "Automated passive checks cannot confirm every vulnerability. Scanner output needs to be treated as assessment evidence and reviewed in context rather than interpreted as a guarantee that a target is secure or vulnerable."
+      }
+    ],
+
+    learnings: [
+      "Designing a modular Laravel REST API with authentication and role-based permissions.",
+      "Implementing SHA-256 hash-chain mechanisms for tamper-evident audit records.",
+      "Understanding Merkle Trees and using Merkle roots as batch integrity commitments.",
+      "Integrating a Laravel application with Solidity smart contracts through Hardhat and ethers.js.",
+      "Understanding blockchain transaction lifecycle, anchoring, immutable snapshots, and verification.",
+      "Building a Python security runner and integrating it with Laravel through authenticated process communication.",
+      "Applying HMAC-SHA256 signatures to authenticate requests between separate application components.",
+      "Designing authorized security assessment workflows with target approval, session ownership, and controlled execution.",
+      "Managing security findings, evidence, severity levels, and CVSS-based assessment records.",
+      "Building a React dashboard to monitor audit and blockchain operations.",
+      "Recognizing the limitations of automated security scanners and the importance of interpreting findings carefully."
+    ],
+
+    livePreview: null,
+
+    demoVideo: "https://www.youtube.com/embed/L1M-R6ecgOg",
+
+    demoUrl: "https://youtu.be/L1M-R6ecgOg"
   }
 
 };

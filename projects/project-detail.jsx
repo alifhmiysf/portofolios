@@ -4,7 +4,6 @@ const { useEffect } = React;
 function ProjectDetail() {
   const params = new URLSearchParams(window.location.search);
   const projectId = params.get("id");
-
   const project = window.PROJECTS_DATA?.[projectId];
 
   useEffect(() => {
@@ -26,24 +25,28 @@ function ProjectDetail() {
     );
   }
 
-  // Mendukung overview dalam bentuk string maupun object.
-  const overviewItems = project.overview.map((item, index) => {
-    if (typeof item === "string") {
-      return {
-        label: `OVERVIEW ${String(index + 1).padStart(2, "0")}`,
-        value: item,
-      };
+  // Overview: mendukung format string maupun object.
+  const overviewItems = (project.overview || []).map(
+    (item, index) => {
+      if (typeof item === "string") {
+        return {
+          label: `OVERVIEW ${String(index + 1).padStart(2, "0")}`,
+          value: item,
+        };
+      }
+
+      return item;
     }
+  );
 
-    return item;
-  });
-
-  // Mendukung architecture dengan properti title maupun name.
-  const architectureItems = project.architecture.map((item, index) => ({
-    name: item.name || item.title || `Component ${index + 1}`,
-    description: item.description || "",
-    type: item.type || "component",
-  }));
+  // Architecture: mendukung properti title maupun name.
+  const architectureItems = (project.architecture || []).map(
+    (item, index) => ({
+      name: item.name || item.title || `Component ${index + 1}`,
+      description: item.description || "",
+      type: item.type || "component",
+    })
+  );
 
   return (
     <main className="case-page">
@@ -113,7 +116,7 @@ function ProjectDetail() {
           </div>
 
           <div className="case-tags">
-            {project.tags.map((tag) => (
+            {(project.tags || []).map((tag) => (
               <span key={tag}>{tag}</span>
             ))}
           </div>
@@ -130,6 +133,7 @@ function ProjectDetail() {
 
           <div className="case-browser-window">
 
+            {/* BROWSER TITLEBAR */}
             <div className="case-browser-titlebar">
               <div className="case-window-controls">
                 <span></span>
@@ -142,42 +146,97 @@ function ProjectDetail() {
               <span>WEB APPLICATION</span>
             </div>
 
+            {/* BROWSER TOOLBAR */}
             <div className="case-browser-toolbar">
               <span>↗</span>
+
               <span>
-                {project.livePreview || "PROJECT INFORMATION"}
+                {project.livePreview ||
+                  project.demoUrl ||
+                  "PROJECT INFORMATION"}
               </span>
+
               <span>
                 {project.livePreview
-                  ? "SECURE CONNECTION"
-                  : "DOCUMENTATION"}
+                  ? "LIVE WEBSITE"
+                  : project.demoVideo
+                    ? "VIDEO DEMONSTRATION"
+                    : "DOCUMENTATION"}
               </span>
             </div>
 
+            {/* PREVIEW CONTENT */}
             <div className="case-preview-frame">
+
               {project.livePreview ? (
+
                 <iframe
                   src={project.livePreview}
                   title={`${project.title} live preview`}
                   loading="lazy"
                   referrerPolicy="strict-origin-when-cross-origin"
                 ></iframe>
+
+              ) : project.demoVideo ? (
+
+                <iframe
+                  src={project.demoVideo}
+                  title={`${project.title} project demonstration`}
+                  loading="lazy"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                ></iframe>
+
               ) : (
+
                 <div className="case-preview-placeholder">
                   <span>PROJECT_{project.number}</span>
+
                   <h3>{project.title}</h3>
-                  <p>Live preview is not available for this project.</p>
+
+                  <p>
+                    Live preview is not available for this project.
+                  </p>
                 </div>
+
               )}
+
             </div>
 
           </div>
 
+          {/* PREVIEW CAPTION */}
           <div className="case-preview-caption">
+
+            {/* GITHUB LINK: hanya tampil jika proyek punya githubUrl */}
+            {project.githubUrl && (
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="case-github-link"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  width="17"
+                  height="17"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.56.1.76-.24.76-.54v-2.1c-3.1.67-3.75-1.32-3.75-1.32-.5-1.28-1.23-1.62-1.23-1.62-1.01-.69.08-.68.08-.68 1.12.08 1.71 1.15 1.71 1.15.99 1.7 2.6 1.21 3.23.92.1-.72.39-1.21.7-1.49-2.47-.28-5.06-1.23-5.06-5.48 0-1.21.43-2.2 1.15-2.98-.12-.28-.5-1.41.11-2.94 0 0 .94-.3 3.05 1.14a10.6 10.6 0 0 1 5.55 0c2.11-1.44 3.05-1.14 3.05-1.14.61 1.53.23 2.66.11 2.94.72.78 1.15 1.77 1.15 2.98 0 4.26-2.59 5.2-5.07 5.47.4.35.75 1.02.75 2.06v3.07c0 .3.2.65.77.54A11.1 11.1 0 0 0 12 .9Z" />
+                </svg>
+
+                VIEW SOURCE CODE ↗
+              </a>
+            )}
+
             <span>
               {project.livePreview
                 ? "LIVE WEBSITE PREVIEW"
-                : "PROJECT DOCUMENTATION"}
+                : project.demoVideo
+                  ? "PROJECT VIDEO DEMONSTRATION"
+                  : "PROJECT DOCUMENTATION"}
             </span>
 
             {project.livePreview && (
@@ -189,6 +248,17 @@ function ProjectDetail() {
                 OPEN IN NEW TAB ↗
               </a>
             )}
+
+            {project.demoUrl && (
+              <a
+                href={project.demoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                WATCH ON YOUTUBE ↗
+              </a>
+            )}
+
           </div>
 
         </section>
@@ -204,7 +274,10 @@ function ProjectDetail() {
           <div className="case-overview-grid">
 
             <div className="case-overview-description">
-              <h2>About the <em>project.</em></h2>
+              <h2>
+                About the <em>project.</em>
+              </h2>
+
               <p>{project.description}</p>
             </div>
 
@@ -235,14 +308,22 @@ function ProjectDetail() {
           <div className="case-two-column">
 
             <article className="case-content-card">
-              <span className="case-card-index">01 — THE PROBLEM</span>
+              <span className="case-card-index">
+                01 — THE PROBLEM
+              </span>
+
               <h3>Problem statement.</h3>
+
               <p>{project.problem}</p>
             </article>
 
             <article className="case-content-card case-solution-card">
-              <span className="case-card-index">02 — THE SOLUTION</span>
+              <span className="case-card-index">
+                02 — THE SOLUTION
+              </span>
+
               <h3>Proposed solution.</h3>
+
               <p>{project.solution}</p>
             </article>
 
@@ -270,9 +351,13 @@ function ProjectDetail() {
               {architectureItems.map((item, index) => (
                 <React.Fragment key={`${item.name}-${index}`}>
 
-                  <div className={`case-architecture-node ${item.type}`}>
+                  <div
+                    className={`case-architecture-node ${item.type}`}
+                  >
                     <span>{item.type.toUpperCase()}</span>
+
                     <strong>{item.name}</strong>
+
                     <small>{item.description}</small>
                   </div>
 
@@ -304,15 +389,22 @@ function ProjectDetail() {
           </div>
 
           <div className="case-feature-grid">
-            {project.features.map((feature, index) => (
-              <article className="case-feature-card" key={feature.title}>
+
+            {(project.features || []).map((feature, index) => (
+              <article
+                className="case-feature-card"
+                key={`${feature.title}-${index}`}
+              >
                 <span>
                   FEATURE_{String(index + 1).padStart(2, "0")}
                 </span>
+
                 <h3>{feature.title}</h3>
+
                 <p>{feature.description}</p>
               </article>
             ))}
+
           </div>
 
         </section>
@@ -326,9 +418,15 @@ function ProjectDetail() {
           </div>
 
           <div className="case-challenge-list">
-            {project.challenges.map((item, index) => (
-              <article className="case-challenge-item" key={item.title}>
-                <span>{String(index + 1).padStart(2, "0")}</span>
+
+            {(project.challenges || []).map((item, index) => (
+              <article
+                className="case-challenge-item"
+                key={`${item.title}-${index}`}
+              >
+                <span>
+                  {String(index + 1).padStart(2, "0")}
+                </span>
 
                 <div>
                   <h3>{item.title}</h3>
@@ -336,6 +434,7 @@ function ProjectDetail() {
                 </div>
               </article>
             ))}
+
           </div>
 
         </section>
@@ -356,12 +455,14 @@ function ProjectDetail() {
             </div>
 
             <div className="case-learning-content">
-              {project.learnings.map((learning, index) => (
+
+              {(project.learnings || []).map((learning, index) => (
                 <div key={index}>
                   <span>✓</span>
                   <p>{learning}</p>
                 </div>
               ))}
+
             </div>
 
           </div>
@@ -370,6 +471,7 @@ function ProjectDetail() {
 
         {/* FOOTER */}
         <footer className="case-footer">
+
           <div>
             <span>ALI.EXE / PROJECT ARCHIVE</span>
             <p>End of project documentation.</p>
@@ -378,6 +480,7 @@ function ProjectDetail() {
           <a href="../index.html#projects">
             ← RETURN TO PROJECTS
           </a>
+
         </footer>
 
       </div>

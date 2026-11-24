@@ -111,6 +111,34 @@ const projects = [
   accent: "blue",
   type: "FULL-STACK PROJECT",
 },
+{
+  number: "07",
+  title: "ChainShield",
+  description:
+    "Blockchain-based security audit platform combining role-based access control, tamper-evident audit logging, Merkle Tree integrity verification, blockchain anchoring, and automated passive security assessment.",
+  tags: [
+    "Laravel",
+    "PHP",
+    "React",
+    "Python",
+    "MariaDB",
+    "Solidity",
+    "Hardhat",
+    "Ethereum",
+    "SHA-256",
+    "Merkle Tree",
+    "REST API",
+    "HMAC-SHA256",
+  ],
+  link: "./projects/project-detail.html?id=chainshield",
+  detailPage: "./projects/project-detail.html?id=chainshield",
+  livePreview: null,
+  previewAddress: "YOUTUBE.COM / CHAINSHIELD DEMO",
+  category: "Cybersecurity & Blockchain",
+  extension: "SEC",
+  accent: "blue",
+  type: "SECURITY SYSTEM",
+},
 ];
 
 function ProjectCarousel() {
